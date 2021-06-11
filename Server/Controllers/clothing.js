@@ -6,11 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DisplayClothingListPage = void 0;
 const clothing_1 = __importDefault(require("../Models/clothing"));
 function DisplayClothingListPage(req, res, next) {
-    clothing_1.default.find(function (err, clothing) {
+    clothing_1.default.find(function (err, clothingCollection) {
         if (err) {
             return console.error(err);
         }
-        console.log(clothing);
+        res.render('index', { title: 'clothing list', page: 'clothing-list', clothing: clothingCollection });
     });
 }
 exports.DisplayClothingListPage = DisplayClothingListPage;
